@@ -2,8 +2,7 @@
 
 #heading(outlined: false)[Eidesstattliche Erklärung]
 
-Hiermit versichere ich, dass ich die #info.type mit dem Thema 
-Vergleich von Verfahren zur Informationsgewinnung aus technischen Dokumentationen mittels KI selbstständig verfasst und keine anderen als die
+Hiermit versichere ich, dass ich die #info.type mit dem Thema #info.title selbstständig verfasst und keine anderen als die
 angegebenen Quellen und Hilfsmittel benutzt habe, alle Ausführungen, die anderen Schriften wörtlich oder sinngemäß
 entnommen wurden, kenntlich gemacht sind und die Arbeit in gleicher oder ähnlicher
 Fassung noch nicht Bestandteil einer Studien- oder Prüfungsleistung war.

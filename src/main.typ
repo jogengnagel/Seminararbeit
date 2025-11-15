@@ -44,11 +44,11 @@
 #set par(leading: 0.55em, first-line-indent: 1.8em, justify: true)
 #set text(font: "Arial", size: 12pt, hyphenate: false)
 //#set text(size: 11.8pt)
-#import "@preview/codly:1.1.1": *
+#import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.1": *
 #show: codly-init.with();
 
-#show raw: set text(font: "Droid Serif")
+#show raw: set text(font:"Droid Serif")
 //#set raw(theme: "../ext/Oasis.tmTheme")
 #show raw.where(block: true): it => block(
   inset: 12pt,

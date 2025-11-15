@@ -5,12 +5,12 @@
 #let today = datetime.today().display("[month repr:long] [day], [year]");
 
 #let info = (
-  title: [Titel],
-  author: "Name",
-  type: "type",
-  matr: "number",
-  firstexaminer: "Name",
-  secondexaminer: "Name",
+  title: [Comparison of metric collection and visualization tools for cloud applications],
+  author: "Jo Gengnagel",
+  type: "Seminararbeit",
+  matr: "3634028",
+  firstexaminer: "Samuel Sarholz",
+  secondexaminer: "Prof. Dr. Hans-Joachim Pflug",
 )
 
 #let bib_state = state(
@@ -23,7 +23,6 @@
 
 #let setupTodo() = {
   set-page-properties()
-
   let default-rect(stroke: none, fill: none, width: 0pt, content) = {
     set text(0.8em)
     set par(justify: false)
