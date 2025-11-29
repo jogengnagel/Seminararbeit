@@ -113,7 +113,7 @@
 #set heading(numbering: "1.1.1 -")
 #include "chapters/1_Einleitung.typ"
 #include "chapters/2_Grundlagen.typ"
-#include "chapters/3_Datenaufbereitung.typ"
+#include "chapters/3_Monitoring_Tools_Overview.typ"
 #include "chapters/4_Verfahren_aus_der_Informationsgewinnung.typ"
 #include "chapters/5_Alternative_Ansätze.typ"
 #include "chapters/6_Vergleich.typ"
