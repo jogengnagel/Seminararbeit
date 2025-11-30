@@ -24,16 +24,18 @@ numeric measurment, timestamped and metadata of a service at runtime -> snapshot
 == Pull vs. Push
 Push (UDP) 
 temporary connections, a little bit more performant
-anything can push to server
+anything can push to server (good and bad)
 easy to have 1:n client server connection with exact replicated data
 easy to model shortlived batch jobs, where pull based might loose some short lived metrics
+easy setup (oneliner)
 
 Pull(Http)
 reliability
 Authenticity due to tcp
-Known number of targets
+Known number of targets but requires registry and client discovery (like kubernetes)
 Easy encription tls serverside
 on demand data retrieving and debug cause of silence (network or client down?)
+requires client to run http server
 
 == Grafana
 query, visualize, alert on, and explore your metrics, and more (not needed in this frame)
@@ -44,15 +46,5 @@ text-based format to expose metrics for monitoring and scraping, line based
 human readable, easy to assemble and line by line parsable
 first class wire format, independet of transport
 
-
-== Opentelemetry
-observability framwork and toolkit (protocol?)
-generation, export, collection of telemetry data
-open source, vendor-tool-agnostic (neutral)
-not observability backendw itseld (as prometheus is)
-enables easy instrumentation of systems regardless of language, infrastructure or environment
-backend and frontend are left to other tools
-own your data, no vendor-lockin, single set of api and conventions for all systems
--> easy to integrate multiple data sources into single observability tool
 
 #pagebreak()

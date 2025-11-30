@@ -1,5 +1,9 @@
 #import "@preview/glossy:0.8.0": *
 #import "../data.typ": *
 
-= Fazit
+= Ausblick
+trends like otel, managed services
 
+
+
+#pagebreak() 

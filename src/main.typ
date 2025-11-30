@@ -114,12 +114,10 @@
 #include "chapters/1_Introduction.typ"
 #include "chapters/2_Basics.typ"
 #include "chapters/3_Methodology_of_Comparison.typ"
-#include "chapters/4_Monitoring_Tools_Overview.typ"
-#include "chapters/5_Alternative_Ansätze.typ"
-#include "chapters/6_Vergleich.typ"
-#include "chapters/7_Fazit.typ"
-#include "chapters/8_Ausblick.typ"
-
+#include "chapters/4_Tool-Analysis.typ"
+#include "chapters/5_Comparison_and_Valuation.typ"
+#include "chapters/6_Conclusion.typ"
+#include "chapters/7_Outlook.typ"
 
 #let subhead(title, question) = block[
   = [#title]
