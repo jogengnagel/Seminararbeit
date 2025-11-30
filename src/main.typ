@@ -111,15 +111,20 @@
 
 #include "chapters/0_Abstract.typ"
 #set heading(numbering: "1.1.1 -")
-#include "chapters/1_Einleitung.typ"
-#include "chapters/2_Grundlagen.typ"
-#include "chapters/3_Monitoring_Tools_Overview.typ"
-#include "chapters/4_Verfahren_aus_der_Informationsgewinnung.typ"
+#include "chapters/1_Introduction.typ"
+#include "chapters/2_Basics.typ"
+#include "chapters/3_Methodology_of_Comparison.typ"
+#include "chapters/4_Monitoring_Tools_Overview.typ"
 #include "chapters/5_Alternative_Ansätze.typ"
 #include "chapters/6_Vergleich.typ"
 #include "chapters/7_Fazit.typ"
 #include "chapters/8_Ausblick.typ"
 
+
+#let subhead(title, question) = block[
+  = [#title]
+  _Leitfrage:_ #question
+]
 
 #show outline.entry: it => {
   it
@@ -127,7 +132,7 @@
 #set heading(numbering: none)
 
 //#bibliography("../ext/sources.bib", style: "american-institute-of-physics", title: auto, full: true)
-#bibliography("../ext/sources.bib", style: "institute-of-electrical-and-electronics-engineers", title: [Bibliographie])   
+#bibliography("../ext/sources.bib", style: "institute-of-electrical-and-electronics-engineers", title: [Bibliography])   
 
 
 //#pagebreak()
