@@ -4,47 +4,66 @@
 #import "/src/meta/terms.typ": *
 
 = Basics
+This chapter focuses on the technical basics that are needed to understand the context of metric monitoring tools. The first section introduces the term *cloud-native application* which builds the nature of monitored application. The second seciton explores the principles of *observability* in this space. A big part of observability are *metrics*, explained in the third section. In the 4th section the pull and push approaches of gathering metrics are compared. And the 5th and 6th section gives a short overview over the *Openmetrics* format and *Grafana* tool used to administer metrics.
 
 == Cloud-native Application
+Cloud-native applications are concipated to fully utilize the advantages of cloud-platforms like *scalability*, *flexibility* and *cost-effectiveness*. They are usually made up of *microservices*, that run in *containers* and communicate with each other over APIs.
+
+*Advantages and Properties*
+- *Indpendent development and deployment*: Different microservices can be developed in different programming languages and updated independently.
+- *Continious Integratioon / Continoius Deployment (CI/CD)*: Automatic processes for builds, tests and deployments.
+- *On-demand scaling*: Ressources can be allocated dynamically.
+- *Resilience and Monitoring*: Loosley coupled systems have a higer tolerance to errors and are easier to monitor.
+
 Continious Integration/Continoius Deployment, a way of designing, creating, deploying and running applications with all advantages of cloud platform -> scalability, cost-effectiveness
 compiled of dozens of smaller software/systems (microservices in containers(efficient af) on cloud servers working together)
 advntgs: independet developing(e.g. different languages), testing, replacement, on-demand scaling, updating and deployment(different CPUs, servers ...) -> flexibility
 loosley coupled systems resilient, manageable, and observable
 
 == Observability
-"Systems" become more detached, capsuled and depend on other systems to work -> Microservices, Complexity, Containers, VMs, APIs,
-shifht from basic monitoring to comprehensive observability, entails all telemetry uniefied
-hollisitc Understanding of the internal state of a System (jhealth/performance) based on the data they emit/produce without knowing inner workings, transparacy
-enables cloudbased advantages
-More observable by produced/emitted data
+With increasing *complexity* due to microservices, containers and APIs, classic monitoring does not suffice to manage cloud-based applications anymore.
+*Observability* means to derive the internal state of a system out of its produced data (telemetry), without direct access to its components.
+
+*Key points*
+- Includes *Metrics*, *Logs* and *Traces*
+- Goal: *hollistic understanding*  of a systems health and performance
+- Enables transparacy and quick debugging in cloud-environments
 
 == Metrics
-numeric measurment, timestamped and metadata of a service at runtime -> snapshot, indicators of availability and performance, e.g. used to alert or automaitcally trigger event (ressource usage, latency, number of users...)
+*Definition*: Metrics are *numerical measurements* with *timestamps* and optional *labels/metadata*. They provide information about the state of a system at a given time period.
 
-== Pull vs. Push
-Push (UDP) 
-temporary connections, a little bit more performant
-anything can push to server (good and bad)
-easy to have 1:n client server connection with exact replicated data
-easy to model shortlived batch jobs, where pull based might loose some short lived metrics
-easy setup (oneliner)
+*Examples*:
+- CPU-Usage
+- latency
+- number of active users
+*Scenarios*
+- Base for *Dashboards* and *Alerts*
+- Automatic scaling and error-handling
 
-Pull(Http)
-reliability
-Authenticity due to tcp
-Known number of targets but requires registry and client discovery (like kubernetes)
-Easy encription tls serverside
-on demand data retrieving and debug cause of silence (network or client down?)
-requires client to run http server
+== Pull vs. Push models
+*Push-Model:*
+- Clients are actively sending data to the server (e.g. via UDP)
+- Advantages: easy for short-lived jobs, low latency, easy setup
+- Disadvantages: less controll serverside, difficult authenication 
+*Pull-Model:*
+- Server actively querys data of clients (e.g. via http-scraping)
+- Advantages: better reliability, authentication and debugging
+- Disadvantages: requires service discovery and client-side http-endpoints
 
 == Grafana
-query, visualize, alert on, and explore your metrics, and more (not needed in this frame)
+Grafana is a *visualization-tool* that querys data from different sources (e.g. prometheus, InfluxDB) and represents it in dashboards.
 
-== Openmetrics
-standardizes and extends the prometheus exposition format
-text-based format to expose metrics for monitoring and scraping, line based
-human readable, easy to assemble and line by line parsable
-first class wire format, independet of transport
+*Functonality:*
+- Flexible visualization
+- Alerting
+- Integration of different data-sources
 
+== OpenMetrics
+OpenMetrics is a *standart-format* for exposing metrics, based on the prometheus-format.
+
+*Characteristics*
+- Text and line-based, easy to read
+- independent of transport protocol
+- Goal: interopoerability between monitoring systems
 
 #pagebreak()

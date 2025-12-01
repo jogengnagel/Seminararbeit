@@ -2,38 +2,59 @@
 #import "../data.typ": *
 
 
+
 = Methodology of Comparison
-defining criteria, weighting and valiation approach
 
-== Goal & Delimitation, What am I comparing and not?
-Goal: Comparison of tools for metric collection and visualization in cloudbased applications
-Delimitation: Only metrics, not other telemtry like traces, logs, 
+This chapter defines the framework for comparing metric collection and visualization tools for cloud-based applications. It outlines the *goal*, *scope*, *context*, *selection rationale*, *comparison criteria*, and the *valuation approach*.
 
-== Opentelemetry as Context, Instrumenting, not Main Part
-observability framwork and toolkit (protocol?)
-generation, export, collection of telemetry data
-open source, vendor-tool-agnostic (neutral)
-not observability backendw itseld (as prometheus is)
-enables easy instrumentation of systems regardless of language, infrastructure or environment
-backend and frontend are left to other tools
-own your data, no vendor-lockin, single set of api and conventions for all systems
--> easy to integrate multiple data sources into single observability tool
+== Goal & Delimitation
+*Goal:*  
+To compare tools that focus on *metric collection and visualization* in cloud-native environments, with emphasis on scalability, performance, and integration.
 
-== Why did I choose these tools?
+*Delimitation:*  
+- Only *metrics* are considered.  
+- Other telemetry types such as *logs* and *traces* are excluded.  
+- Visualization tools (e.g., Grafana) are included only as part of integration aspects, not as standalone comparison subjects.
 
-== Criteria
-strengths/weaknesses
-datamodel & architecture (pull push, labels tags, tsdb cluster)
-scalability & performance (cardinality, retention, HA) speed, realtime, scrape-rate, longevity of data
-query-functionality (Flux, PromQL, Graphite Functions, VM-Compatability)
-integration (grafana, kubernetes, OTel/OTLP, Exporter/Collector)
-operation & cost (ressorces, os, licensing, cloud/on-prem, )
-setup complexity
+== OpenTelemetry as Context
+OpenTelemetry is an *open-source observability framework and toolkit*, not a backend system like Prometheus.  
+*Key characteristics:*
+- Provides *APIs and SDKs* for generating, exporting, and collecting telemetry data (metrics, logs, traces).
+- *Vendor-neutral* and designed to avoid lock-in.
+- Enables *instrumentation across languages and environments*.
+- Does not store or visualize data itself; relies on backends such as Prometheus or InfluxDB.
+- Facilitates *integration of multiple data sources* into a unified observability pipeline.
 
-== Valuation approach
-How and why do I value each criteria,  
-qualtiative analysid of each tool
-weighted Matrix
+== Why These Tools?
+The selected tools represent widely used solutions for metric collection and storage:
+- *Prometheus* – Cloud-native standard for metrics and alerting.
+- *InfluxDB* – Specialized time-series database with strong query capabilities.
+- *Graphite* – Classic metric storage system, still relevant for legacy and simple setups.
+- *VictoriaMetrics* – High-performance, Prometheus-compatible alternative.
+
+These tools differ in *architecture*, *data model*, and *integration capabilities*, making them suitable for comparative analysis.
+
+== Comparison Criteria
+The following criteria are used to evaluate each tool:
+
+- *Architecture & Data Model*  
+  (Pull vs. Push, label-based vs. hierarchical, TSDB vs. cluster design)
+- *Scalability & Performance*  
+  (Cardinality handling, retention, high availability, scrape rate, real-time capability)
+- *Query Functionality*  
+  (PromQL, Flux, Graphite functions, compatibility with Prometheus ecosystem)
+- *Integration*  
+  (Grafana support, Kubernetes, OpenTelemetry/OTLP, exporters and collectors)
+- *Operation & Cost*  
+  (Resource footprint, setup complexity, licensing, cloud/on-prem options)
+- *Setup Complexity*  
+  (Ease of deployment, configuration overhead)
+
+== Valuation Approach
+The evaluation combines *qualitative analysis* and a *weighted scoring model*:
+- Tools are rated on a *scale (e.g., 0–5)* per criterion.
+- Weighted scores are aggregated into a *decision matrix*.
+- Results are discussed in terms of *strengths, weaknesses, and trade-offs*.
 
 
 #pagebreak()

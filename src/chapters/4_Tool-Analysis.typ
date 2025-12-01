@@ -16,17 +16,14 @@ neutral descriptions and technical details
 - 
 
 == InfluxDB
-- Short:
-- architecture:
-- datamodel:
-- query:
-- integration:
-- strengths:
-- weaknesses:
-- scenarios:
+- Short: tsdb with high writing performance, Pull-based
+- architecture: single node (os) or cluster (enterprise)
+- datamodel: tags & fileds, line protocol, nanosecond timestamps
+- query: flux or influxql
+- integration: grafana-data-source, kapacitor(alertmanager)
+- strengths: high-writing-performance, strong time-series-functionality, good horizontal scaling and ha/redundancy in enterprise, event logging
+- scenarios: Telemetry, longtime metrics
 
-
-Zeitreihenoptimierung, Flux-Query
 
 
 == Graphite
