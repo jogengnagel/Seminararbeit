@@ -12,20 +12,14 @@ This chapter defines the framework for comparing metric collection and visualiza
 To compare tools that focus on *metric collection and visualization* in cloud-native environments, with emphasis on scalability, performance, and integration.
 
 *Delimitation:*  
-- Only *metrics* are considered.  
-- Other telemetry types such as *logs* and *traces* are excluded.  
+- The comparison will mainly consider tools for *metric monitoring*, allowing a clear comparison of tools.
+- For a possible integration into observability platforms, tools will be examined for their support of *logs* and *traces* or their compatability with the *OpenTelemetry* standart 
 - Visualization tools (e.g., Grafana) are included only as part of integration aspects, not as standalone comparison subjects.
 
-== OpenTelemetry as Context
-OpenTelemetry is an *open-source observability framework and toolkit*, not a backend system like Prometheus.  
-*Key characteristics:*
-- Provides *APIs and SDKs* for generating, exporting, and collecting telemetry data (metrics, logs, traces).
-- *Vendor-neutral* and designed to avoid lock-in.
-- Enables *instrumentation across languages and environments*.
-- Does not store or visualize data itself; relies on backends such as Prometheus or InfluxDB.
-- Facilitates *integration of multiple data sources* into a unified observability pipeline.
-
 == Why These Tools?
+TODO: Toolcontext
+Many Different Monitoring Solutuions for different Scenarios.
+Fully commercial products tailored to specific cloud providers, flexible open source tools vendor-agnostic compatibility.
 The selected tools represent widely used solutions for metric collection and storage:
 - *Prometheus* – Cloud-native standard for metrics and alerting.
 - *InfluxDB* – Specialized time-series database with strong query capabilities.
@@ -36,7 +30,7 @@ These tools differ in *architecture*, *data model*, and *integration capabilitie
 
 == Comparison Criteria
 The following criteria are used to evaluate each tool:
-
+Why?
 - *Architecture & Data Model*  
   (Pull vs. Push, label-based vs. hierarchical, TSDB vs. cluster design)
 - *Scalability & Performance*  
@@ -49,6 +43,10 @@ The following criteria are used to evaluate each tool:
   (Resource footprint, setup complexity, licensing, cloud/on-prem options)
 - *Setup Complexity*  
   (Ease of deployment, configuration overhead)
+- *Support for Observability Extensions*
+  (Logs, Traces, Spans)
+- *Scenarios*
+  (systems)
 
 == Valuation Approach
 The evaluation combines *qualitative analysis* and a *weighted scoring model*:
