@@ -27,12 +27,9 @@ Cloud based development demands a switch from a traditional monolithic mindset t
 === Monitoring in Cloud Environments
 In order to fully utilize the advantages and properly manage the challenges of cloud-native applications, cloud-native applications are designed with monitoring in mind. Monitoring helps operators and developers to fully understand the state of a complexly distributed application without needing a deeper knowledge of the whole codebase.
 Cloud monitoring is commonly used to achieve the following goals:
-- *Performance Assurance*:
-The applications performance is monitored by tracking hardware-utilization like CPU, Memory, Storage and Network Usage. This is for detecting issues with performance degregation and initiating solutions.
-- *Reliability and Availability*:
-Many companies have to comply to SLAs which are often defined by the applications up-times, respone-times, and failure-rates. 
-- *Security*:
-Monitoring can also be really usefull for detecting security-risks like unauthorized access and intrusion attempts.
+- *Performance Assurance*: The applications performance is monitored by tracking hardware-utilization like CPU, Memory, Storage and Network Usage. This is for detecting issues with performance degregation and initiating solutions.
+- *Reliability and Availability*: Many companies have to comply to SLAs which are often defined by the applications up-times, respone-times, and failure-rates. 
+- *Security*: Monitoring can also be really usefull for detecting security-risks like unauthorized access and intrusion attempts.
 @monitoring
 
 This is achieved by collecting and analyzing telemetry data from different microservices. 
@@ -42,21 +39,18 @@ Telemetry data for monitoring distributed cloud-native applications consists of 
 === Logs
 Logs are timestamped text records with optional metadata emitted on events. They provide usefull information about time-specific occurences of user-actions, warings and errors. They are essential for udnerstanding processess and debugging issues. 
 (example)
+
 === Traces
 Traces provide insight to requests from start to finish as it travels through multiple components of a distributed system. They make it easy to understand the context of complex data-flows and diagnosing root-causes of issues in the application.
 - examples
 
 === Metrics
 Metrics are *numerical measurements* with *timestamps* and optional *labels/metadata*. They provide information about the state of a system at a given time period and form the basics for many monitoring-processes. They are leightweight and ideal for alerting and triggering actions.
+Monitoring systems usually organize metrics in two different ways. 
 
-*Examples*:
-- CPU-Usage
-- latency
-- number of active users
-*Scenarios*
-- Base for *Dashboards* and *Alerts*
-- Automatic scaling and error-handling
+In the *Label-Based Model* metrics are identified by name and specified with labels made of key-value pairs. This modern approach enables complex filtering and flexible grouping of data (e.g., http_requests_total can have labels like method="GET" or status="200").
 
+The *Hierarchical Model* is used by older systems and uses a dotted naming convention (e.g.,servers.web01.cpu.load). This builds a simple but rigid tree-like structure, better suited for static infrastructure.
 @telemetry
 
 The complex distributed nauture of cloud-native applications makes it very difficult to effiently collect, aggregate and visualize the emitted data in a benefitial way. This is reflected in the layered architecture of cloud monitoring systems.
@@ -82,36 +76,29 @@ Most monitoring tools specialise on one of the models while also providing an in
 === Data Aggregation and Processing Layer
 The collected telemetry data has to be effiently stored and aggregated for analysis. This layer commonly uses message brokers for streaming ingestion and centralizing diverse data from different sources. The data is then stored in databases that needs to be both scalable and adaptable to accomodate large amounts of diverse data. Different Solutions are:
 - *Relational Databases*: For structured data organized in tables, rows and columns like transaction logs.
-- *NoSQL Databases*: For handling large volumes of flexible unstructured data such as metadata.
+- *NoSQL Databases*: For handling large volumes of flexible unstructured data with high cardinality such as metadata.
 - *Time Series Databases (TSDBs)*: Optimized for data indexed by time, e.g. metrics.
 Each solution comes with their own set of functions and query language to efficently transform the aggregated data in two distinct ways. *Real-time Streaming* enables the system to quickly detect issues and trigger alerts. *Batch Processing* are used for heavier aggregation tasks and historical analysis like debugging. Using both apporaches allows for monitoring immediate and long-term behaviour.
+
 === Visualization and Alerting Layer
+This layer is for transforming the aggregated telemetry data in a dahsboards and alerts. Modern solutions can render the aggregated data of different databases via heatmaps, charts, tables, gauges and other customizable graphs. Especially the visualization of historical data enables teams to identify recurring issues and identify problematic systems. Modern tools also integrate alerting mechanisms that can trigger actions and alerts when unplanned behaviour is detected or specific conditions occur. 
+An example would be a gauge for a specif systems CPU utilization and an alert notifying the team if the systems capacity rising above 90%. Visualization?
 @architecture
 
-== Standarts and Frameworks
-Standarts and frameworks are needed to put all the different systems together, standardized formats. Interlink, ..., Compatability between tools, systems and stuff
+== Cloud Monitoring Standarts
+
+In modern cloud-native systems interoperability between systems is gaining importance, because multiple monitoring solutions and tools are often combined by companies to satisfy special requirements. Open standarts like *OpenMetrics* and *OpenTelemetry* play a crucial role providing the needed compatability between the layers by specifying how data is represented and exchanged. This enables portability, consistency and integration across heterogeneus systems.
 
 === OpenMetrics
-OpenMetrics is a *format* for standardizing and exposing these metrics to the monitoring-systems, 
-based on the prometheus-format. @openmetrics
+OpenMetrics is a *specification* for standardizing and exposing metrics to a monitoring-systems in a tex-based format. It is based on the *Prometheus exposition format* and has evolved into a commonly used interoperability standart.  
+@openmetrics
 Example
 
 === OpenTelemetry 
-OpenMetrics (as name says) only metrics, OpenTel -> more monitoring (observability) for debugging and tracing and stuff, broader approach
-OpenTelemetry is an *open-source observability framework and toolkit* 
-*Key characteristics:*
-- Provides *APIs and SDKs* for generating, exporting, and collecting telemetry data (metrics, logs, traces).
-- *Vendor-neutral* and designed to avoid lock-in.
-- Enables *instrumentation across languages and environments*.
-- Does not store or visualize data itself; relies on backends such as Prometheus or InfluxDB.
-- Facilitates *integration of multiple data sources* into a unified observability pipeline.
-- Push as standart for all telemetry, pull gateway e.g. for prometheus
+OpenTelemetry is an open-soruce standart for generating, collecting and exporting not just metrics but traces and logs aswell. It is vendor-neutral and provides a set of APIs, SDKs and collectors that unify the instrumentation of services with different environments and languages. This helps developers to avoid vendor lock-in.
+
+Example/Visualization?
 Application → OpenTelemetry SDK → Collector → Backend
 @opentelemetry
 
-== Key Concepts for Comparison
-=== label-based vs hierarchical
-=== cardinality
-=== tsdb concept and queries
-=== Data Acquisition Methods
 #pagebreak()
