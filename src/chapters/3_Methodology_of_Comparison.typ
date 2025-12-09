@@ -55,4 +55,15 @@ The evaluation combines *qualitative analysis* and a *weighted scoring model*:
 - Results are discussed in terms of *strengths, weaknesses, and trade-offs*.
 
 
+=== Grafana 
+Grafana Bsp Visualisierungslayer (und Alerting ...). Warum hier und in Kapitel3 erwaehnen? Welche Rolle soll es spielen?
+Transforming all the data into human readable graphs and stuff
+Grafana is a *visualization-tool / observability-platform* that querys data from different sources (e.g. prometheus, InfluxDB) and represents it in dashboards.
+
+*Functonality:*
+- Flexible visualization
+- Alerting
+- Integration of different data-sources
+@grafana
+
 #pagebreak()
