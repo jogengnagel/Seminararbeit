@@ -5,65 +5,53 @@
 
 = Methodology of Comparison
 
-This chapter defines the framework for comparing metric collection and visualization tools for cloud-based applications. It outlines the *goal*, *scope*, *context*, *selection rationale*, *comparison criteria*, and the *valuation approach*.
+This chapter defines the framework for comparing metric collection tools, while considering visualization as part of the tools integration. It outlines the *goal*, *scope*, *context*, *selection rationale*, *comparison criteria*, and the *valuation approach*.
 
 == Goal & Delimitation
 *Goal:*  
-To compare tools that focus on *metric collection and visualization* in cloud-native environments, with emphasis on scalability, performance, and integration.
+To compare tools that focus on *metric collection* in cloud-native environments with emphasis on scalability, performance, and integration.
 
-*Delimitation:*  
-- The comparison will mainly consider tools for *metric monitoring*, allowing a clear comparison of tools.
-- For a possible integration into observability platforms, tools will be examined for their support of *logs* and *traces* or their compatability with the *OpenTelemetry* standart 
-- Visualization tools (e.g., Grafana) are included only as part of integration aspects, not as standalone comparison subjects.
+*Scope & Delimitation:*  
+The comparison will mainly consider tools for *metric monitoring*. This allows a clear comparison of tools.
+The primary focus will lay on metric collecting and storage tools, whereas visualization tools are not evaluated as standalone slutions, but considered for the tools integration capabilities. The tools will also be assessed for their compatibility with *logs*, *traces*, and *OpenTelemetry* standards. 
+The comparison excludes fully integrated commercial observability platforms that are tailored to specific cloud-providers as they often create vendor-lockin. 
+The emphasis will remain on flexible metric-centric solutions that build the foundation for complex cloud-monitoring.
 
-== Why These Tools?
-TODO: Toolcontext
-Many Different Monitoring Solutuions for different Scenarios.
-Fully commercial products tailored to specific cloud providers, flexible open source tools vendor-agnostic compatibility.
-The selected tools represent widely used solutions for metric collection and storage:
+== Tool Selection Rationale
+The selected tools represent widely used metric collection and storage systems in both modern and established systems. They are mostly open-source and vary in architecure and integration-models making them suitable for comparative analysis:
+
 - *Prometheus* – Cloud-native standard for metrics and alerting.
-- *InfluxDB* – Specialized time-series database with strong query capabilities.
-- *Graphite* – Classic metric storage system, still relevant for legacy and simple setups.
+- *InfluxDB* – Time-series database with strong query capabilities.
+- *Graphite* – Established metric storage system for legacy and simple setups.
 - *VictoriaMetrics* – High-performance, Prometheus-compatible alternative.
 
-These tools differ in *architecture*, *data model*, and *integration capabilities*, making them suitable for comparative analysis.
-
 == Comparison Criteria
-The following criteria are used to evaluate each tool:
-Why?
-- *Architecture & Data Model*  
-  (Pull vs. Push, label-based vs. hierarchical, TSDB vs. cluster design)
-- *Scalability & Performance*  
-  (Cardinality handling, retention, high availability, scrape rate, real-time capability)
-- *Query Functionality*  
-  (PromQL, Flux, Graphite functions, compatibility with Prometheus ecosystem)
-- *Integration*  
-  (Grafana support, Kubernetes, OpenTelemetry/OTLP, exporters and collectors)
-- *Operation & Cost*  
-  (Resource footprint, setup complexity, licensing, cloud/on-prem options)
-- *Setup Complexity*  
-  (Ease of deployment, configuration overhead)
-- *Support for Observability Extensions*
-  (Logs, Traces, Spans)
-- *Scenarios*
-  (systems)
+The evaluation of the tools is based on the following dimensions:
+The criteria are selected to reflect the *technical capabililties*, *operational complexity* and *ecosystem integration* of the tools ensuring a complete evaluation of their respective strengths and weaknesses.
+
+*Architecture & Data Model*
+The underlying architecture determines how metrics are ingested, stored, and queried.
+Pull vs. Push models affect scalability and network overhead, Label-based vs. hierarchical models influence flexibility in metric organization and TSDB design impacts retention and query performance.
+
+*Scalability & Performance*
+Cloud-native environments often involve high cardinality and dynamic workloads. The Ability to handle millions of time-series data efficiently, scale horizontally and options to cluster for large deployments are often essential to ensure performance under high scrape rates and real-time requirements.
+
+*Query Functionality*
+Advanced queries with either *Real-time Streaming* or *Batch Processing* capabililties enable deep insights and custom dashboards.
+
+*Integration*
+Tools often need work together, integration with standarts like OpenTelemetry and visualization platforms like Grafana is critical for cloud-based monitoring solutions.
+
+*Operation & Cost*
+Operational overhead and licensing cost affect adoption of monitroing tools. It is important to maintain efficiency a small resource footprint. The complexity of setup and maintance aswell as the licensing-model are also a big cost factor.
+
+*Use Case Scenarios*
+Different tools excel in different contexts like microservices, legacy systems or hybrid environments.
 
 == Valuation Approach
-The evaluation combines *qualitative analysis* and a *weighted scoring model*:
-- Tools are rated on a *scale (e.g., 0–5)* per criterion.
-- Weighted scores are aggregated into a *decision matrix*.
-- Results are discussed in terms of *strengths, weaknesses, and trade-offs*.
-
-
-=== Grafana 
-Grafana Bsp Visualisierungslayer (und Alerting ...). Warum hier und in Kapitel3 erwaehnen? Welche Rolle soll es spielen?
-Transforming all the data into human readable graphs and stuff
-Grafana is a *visualization-tool / observability-platform* that querys data from different sources (e.g. prometheus, InfluxDB) and represents it in dashboards.
-
-*Functonality:*
-- Flexible visualization
-- Alerting
-- Integration of different data-sources
-@grafana
+The evaluation combines *qualitative analysis* and a *weighted scoring model* to ensure transparacy and reproducability. 
+The qualitative analysis contains a discussion of each tool's strengths, weaknesses and considerations of architectural trade-offs. 
+The weighted scoring assigns each criterion a weight based on its importance in cloud-native monitoring (e.g., scalability > setup complexity). The tools are rated on a scale (0-5) per criterion. The weighted scores are aggregated into a decision matrix for visual comparison. 
+This matrix higlights relative strenghts, identifies trade-offs and supports recommendations for different scenarios.
 
 #pagebreak()

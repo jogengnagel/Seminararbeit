@@ -82,9 +82,9 @@ Each solution comes with their own set of functions and query language to effice
 
 === Visualization and Alerting Layer
 This layer is for transforming the aggregated telemetry data in a dahsboards and alerts. Modern solutions can render the aggregated data of different databases via heatmaps, charts, tables, gauges and other customizable graphs. Especially the visualization of historical data enables teams to identify recurring issues and identify problematic systems. Modern tools also integrate alerting mechanisms that can trigger actions and alerts when unplanned behaviour is detected or specific conditions occur. 
-An example would be a gauge for a specif systems CPU utilization and an alert notifying the team if the systems capacity rising above 90%. Visualization?
+An example would be a gauge for a specif systems CPU utilization and an alert notifying the team if the systems capacity rising above 90%. 
+Visualization?
 @architecture
-
 == Cloud Monitoring Standarts
 
 In modern cloud-native systems interoperability between systems is gaining importance, because multiple monitoring solutions and tools are often combined by companies to satisfy special requirements. Open standarts like *OpenMetrics* and *OpenTelemetry* play a crucial role providing the needed compatability between the layers by specifying how data is represented and exchanged. This enables portability, consistency and integration across heterogeneus systems.
@@ -95,7 +95,7 @@ OpenMetrics is a *specification* for standardizing and exposing metrics to a mon
 Example
 
 === OpenTelemetry 
-OpenTelemetry is an open-soruce standart for generating, collecting and exporting not just metrics but traces and logs aswell. It is vendor-neutral and provides a set of APIs, SDKs and collectors that unify the instrumentation of services with different environments and languages. This helps developers to avoid vendor lock-in.
+OpenTelemetry is an open-soruce *standart* for generating, collecting and exporting not just metrics but traces and logs aswell. It is *vendor-neutral* and provides a set of APIs, SDKs and collectors that unify the instrumentation of services with different environments and languages. This helps developers to avoid vendor lock-in.
 
 Example/Visualization?
 Application → OpenTelemetry SDK → Collector → Backend
