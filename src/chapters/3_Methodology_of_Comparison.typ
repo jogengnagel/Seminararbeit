@@ -13,12 +13,12 @@ To compare tools that focus on *metric collection* in cloud-native environments 
 
 *Scope & Delimitation:*  
 The comparison will mainly consider tools for *metric monitoring*. This allows a clear comparison of tools.
-The primary focus will lay on metric collecting and storage tools, whereas visualization tools are not evaluated as standalone slutions, but considered for the tools integration capabilities. The tools will also be assessed for their compatibility with *logs*, *traces*, and *OpenTelemetry* standards. 
-The comparison excludes fully integrated commercial observability platforms that are tailored to specific cloud-providers as they often create vendor-lockin. 
+The primary focus will lay on metric collecting and storage tools, whereas visualization tools are not evaluated as standalone solution, but rather considered for the tools integration capabilities. The tools will be assessed for their compatibility with *logs*, *traces*, and *OpenTelemetry* standards. 
+The comparison excludes fully integrated commercial observability platforms that are tailored to specific cloud-providers as they often create vendor lock-in. 
 The emphasis will remain on flexible metric-centric solutions that build the foundation for complex cloud-monitoring.
 
 == Tool Selection Rationale
-The selected tools represent widely used metric collection and storage systems in both modern and established systems. They are mostly open-source and vary in architecure and integration-models making them suitable for comparative analysis:
+The selected tools represent widely used metric collection and storage systems in both modern and established systems. They are mostly open-source and vary in architecture and integration-models making them suitable for comparative analysis:
 
 - *Prometheus* – Cloud-native standard for metrics and alerting.
 - *InfluxDB* – Time-series database with strong query capabilities.
@@ -27,7 +27,7 @@ The selected tools represent widely used metric collection and storage systems i
 
 == Comparison Criteria
 The evaluation of the tools is based on the following dimensions:
-The criteria are selected to reflect the *technical capabililties*, *operational complexity* and *ecosystem integration* of the tools ensuring a complete evaluation of their respective strengths and weaknesses.
+The criteria are selected to reflect the *technical capabilities*, *operational complexity* and *ecosystem integration* of the tools ensuring a complete evaluation of their respective strengths and weaknesses.
 
 *Architecture & Data Model*
 The underlying architecture determines how metrics are ingested, stored, and queried.
@@ -37,21 +37,21 @@ Pull vs. Push models affect scalability and network overhead, Label-based vs. hi
 Cloud-native environments often involve high cardinality and dynamic workloads. The Ability to handle millions of time-series data efficiently, scale horizontally and options to cluster for large deployments are often essential to ensure performance under high scrape rates and real-time requirements.
 
 *Query Functionality*
-Advanced queries with either *Real-time Streaming* or *Batch Processing* capabililties enable deep insights and custom dashboards.
+Advanced queries with either *Real-time Streaming* or *Batch Processing* capabilities enable deep insights and custom dashboards.
 
 *Integration*
-Tools often need work together, integration with standarts like OpenTelemetry and visualization platforms like Grafana is critical for cloud-based monitoring solutions.
+Tools often need work together, integration with standards like OpenTelemetry and visualization platforms like Grafana is critical for cloud-based monitoring solutions.
 
 *Operation & Cost*
-Operational overhead and licensing cost affect adoption of monitroing tools. It is important to maintain efficiency a small resource footprint. The complexity of setup and maintance aswell as the licensing-model are also a big cost factor.
+Operational overhead and licensing cost affect adoption of monitoring tools. It is important to maintain efficiency a small resource footprint. The complexity of setup and maintenance as well as the licensing-model are also a big cost factor.
 
 *Use Case Scenarios*
 Different tools excel in different contexts like microservices, legacy systems or hybrid environments.
 
 == Valuation Approach
-The evaluation combines *qualitative analysis* and a *weighted scoring model* to ensure transparacy and reproducability. 
+The evaluation combines *qualitative analysis* and a *weighted scoring model* to ensure transparancy and reproducibility. 
 The qualitative analysis contains a discussion of each tool's strengths, weaknesses and considerations of architectural trade-offs. 
 The weighted scoring assigns each criterion a weight based on its importance in cloud-native monitoring (e.g., scalability > setup complexity). The tools are rated on a scale (0-5) per criterion. The weighted scores are aggregated into a decision matrix for visual comparison. 
-This matrix higlights relative strenghts, identifies trade-offs and supports recommendations for different scenarios.
+This matrix highlights relative strengths, identifies trade-offs and supports recommendations for different scenarios.
 
 #pagebreak()

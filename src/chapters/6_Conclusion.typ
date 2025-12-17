@@ -1,6 +1,17 @@
 #import "@preview/glossy:0.8.0": *
 #import "../data.typ": *
 
-= Fazit
+= Conclusion
 
-Combinations, Conclusion of Results, Recommendations for usecase
+== Conclusion
+The comparison shows that metric differences between collection and storage solutions are mostlz seen in ingestion model, data model flexibility, and scaling strategy. Prometheus provides a strong ecosystem alignment for cloud‑native workloads through pull‑based discovery, expressive label semantics, and mature alerting. It is the most effective primary collector in Kubernetes environments and the clearest integration point for exporters and dashboards. VictoriaMetrics complements this role with efficient long‑term storage and horizontal scale, offering PromQL/MetricsQL compatibility that minimizes migration and dashboard rewrites. InfluxDB stands out for transformation‑rich analytics and flexible schemas, which are valuable in IoT and time‑series analysis scenarios. It has both an open‑source cores for basic applications and an enterprise version for better scalability with clustering. Graphite remains a pragmatic fit for legacy applications and predictable push pipelines. Its hierarchical metric paths and operational topology make it less adaptable to highly dynamic, label‑dense microservices.
+
+The scoring matrix confirms these qualitative observations: Prometheus and VictoriaMetrics lead where integration, operability, and scalability are decisive. InfluxDB excels when query expressiveness and data shaping dominate whereas Graphite is better for simplicity and determinism over multi‑dimensional queries. Visualization is best treated as an integration dimension rather than a primary comparison subject. Grafana and similar visualization and alerting tools connect well to all four backends, but their capabilities do not substantially alter the ranking because the important trade‑offs exist in acquisition, aggregation and processing layers.
+
+
+== Limitations
+The valuation depends on selected criteria and their weights. Different priorities like analytical transformations over real‑time ingestiono wuld change the ranking. The scores reflect commonly observed properties and documented behaviors in cloud‑native practice, not exhaustive benchmark results across all hardware profiles and data shapes. Retention, cardinality, and query latency are highly workload specific and results will vary with scrape rates, label cardinality management, and hardware configurations. The paper intentionally limits coverage of logs and traces to compatibility and integration, and treats visualization only in terms of data‑source support and ecosystem fit.
+
+
+== Recommendations
+Adopt Prometheus as the primary acquisition tool, and integrate VictoriaMetrics for long‑term, cost‑efficient storage in the aggregation and processing layer where retention and query concurrency are priorities. Implement Grafana as visualization and alerting framework for the most flexibility. Use InfluxDB for systems that need transformation‑heavy analytics or SQL/Flux workflows, and keep Graphite where legacy agents, push pipelines, and predictable disk usage are operational requirements. Establish label guidelines and aggregation policies early to control cardinality and query cost and define workload‑specific benchmarks covering ingest rates, label cardinality, query latency, and retention tiers, that can validate the decision matrix under those constraints. Treat visualization as interchangeable and focus on well‑defined metric contracts, SLOs, and dashboards that map cleanly across backends.

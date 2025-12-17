@@ -75,14 +75,14 @@
 
 #include "meta/terms.typ"
 #include "splash.typ"
-#include "formal/eidesstattlicheerklaerung.typ"
+#include "formal/STATUTORY_DECLARATION.typ"
 //#include "formal/sperrvermerk.typ"
 #set page(numbering: "I")
 #counter(page).update(1)
 //#include "chapters/0_abstract.typ"
 
 #pagebreak()
-#outline(indent: auto, target: heading.where(outlined: true), title: [Inhaltsangabe])
+#outline(indent: auto, target: heading.where(outlined: true), title: [Table of Contents])
 #pagebreak()
 
 
@@ -94,7 +94,7 @@
   show-term: emph-term
 )
 
-#include "formal/glossary.typ"
+//#include "formal/glossary.typ"
 
 
 
@@ -112,7 +112,7 @@
 #include "chapters/0_Abstract.typ"
 #set heading(numbering: "1.1.1 -")
 #include "chapters/1_Introduction.typ"
-#include "chapters/2_Basics.typ"
+#include "chapters/2_Background.typ"
 #include "chapters/3_Methodology_of_Comparison.typ"
 #include "chapters/4_Tool-Analysis.typ"
 #include "chapters/5_Comparison_and_Valuation.typ"
